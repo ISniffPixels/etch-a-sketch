@@ -1,0 +1,98 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+
+    /* outline: 1px solid rgb(128, 128, 128); */
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+.etch_title_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 30px;
+}
+
+.etch_title {
+    color: rgb(255, 215, 0);
+    font-size: 20px;
+    font-weight: bolder;
+
+    padding: 10px;
+}
+
+.etch_span {
+    font-family: cursive;
+    font-size: 50px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.reg_span {
+    font-size: 20px;
+    font-weight: bolder;
+
+    margin-left:5px;
+}
+
+.container_frame {
+    background-color: rgb(200, 0, 0);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+
+    width: 1000px;
+    height: 800px;
+}
+
+.container {
+    background-color: rgb(220, 220, 220);
+
+    border-radius: 20px;
+
+    width: 725px;
+    height: 525px;
+}
+
+.control_dials_container {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px 5px 15px 5px;
+
+    width: 100%;
+}
+
+.dial_left,
+.dial_right {
+    background-color: rgb(255, 255, 255);
+
+    border-radius: 100%;
+    box-shadow: 2px 2px 2px 4px rgb(0, 0, 0, 0.3);
+
+    width: 125px;
+    height: 125px;
+}
