@@ -8,6 +8,11 @@ const drawArea = document.querySelector('.drawArea');
 drawArea.style.width = `${drawAreaWidthHeight}px`;
 drawArea.style.height = `${drawAreaWidthHeight}px`;
 
+// COLORS UPON MOUSE HOVER ANY ELEMENT THE THIS KEYWORD BINDS TOO
+function colorPixel() {
+    this.style.backgroundColor = 'black';
+}
+
 function createPixel(pixelQty) {
     for(let p = 0; p < pixelQty * pixelQty; p++) {
         const createPixel = document.createElement('div');
@@ -17,7 +22,11 @@ function createPixel(pixelQty) {
         
         createPixel.classList.add('pixelStyle');
         drawArea.appendChild(createPixel);
+
+        createPixel.addEventListener('mouseover', colorPixel);
     }
 }
 
-createPixel(16);
+createPixel(64);
+
+drawArea
