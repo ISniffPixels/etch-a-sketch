@@ -21,6 +21,7 @@ body {
 
     width: 100%;
     min-height: 100vh;
+    height: 100vh;
 }
 
 .etch_title_center {
@@ -68,13 +69,19 @@ body {
     height: 800px;
 }
 
-.container {
+.drawArea {
     background-color: rgb(220, 220, 220);
+
+    display: flex;
+    flex-wrap: wrap;
 
     border-radius: 20px;
 
-    width: 725px;
-    height: 525px;
+    overflow: hidden;
+}
+
+.pixelStyle {
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .control_dials_container {
