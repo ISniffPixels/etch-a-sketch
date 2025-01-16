@@ -11,11 +11,20 @@
     <div class="wrapper">
         <div class="container_frame">
             <div class="etch_title_center">
-                <div class="etch_title">RAINBOW <span class="etch_span">Etch-A-Sketch<sup class="reg_span">&reg;</sup></span> SCREEN</div>
+                <div class="etch_title">SUPER <span class="etch_span">Etch-A-Sketch<sup class="reg_span">&reg;</sup></span> SCREEN</div>
             </div>
             <div class="drawArea"></div>
             <div class="control_dials_container">
                 <div class="dial_left"></div>
+                <div class="slider_container">
+                    <input type="range" class="slider" id="slider" min="16" max="64" step="16"  name="slider">
+                    <output></output>
+                </div>
+                <div class="control_btns_container">
+                    <button id="rainbowMode">RAINBOW MODE</button>
+                    <button id="eraser">ERASER</button>
+                    <button id="resetPixels">RESET</button>
+                </div>
                 <div class="dial_right"></div>
             </div>
         </div>
