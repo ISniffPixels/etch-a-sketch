@@ -1,2 +1,2 @@
 # etch-a-sketch
-This etch-a-sketch project will have a little etch-a-sketch product resemblance for a nostalgic touch
+An etch a sketch program with added functionality and a UI that pays homage to the old school etch a sketch toy of the 1960's era
