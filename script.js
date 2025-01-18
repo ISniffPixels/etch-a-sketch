@@ -5,9 +5,24 @@ const drawArea = document.querySelector('.drawArea');
 const drawAreaWidthHeight = 800;
 const pixelSlider = document.querySelector('#slider');
 const output = document.querySelector('output');
-// const rainbowMode = document.querySelector('#rainbowMode');
-// const eraser = document.querySelector('#eraser');
-const resetPixels = document.querySelector('#resetPixels');
+const colorMode = document.querySelector('#colorMode');
+const eraserBtn = document.querySelector('#eraser');
+const rainBowMode = document.querySelector('#random_color');
+const resetPixels = document.querySelector('#reset_pixels');
+const erasePixels = document.querySelector('#erase_pixels');
+const printGrid = document.querySelector('#print_grid');
+const containerFrame = document.querySelector('.container_frame');
+
+// CONDITIONAL STATE THAT WILL DETERMINE WHAT COLOR MODE YOU'RE ON
+let currentMode = 'color';
+
+// BOOLEAN VALUE TO DETERMINE WHETHER OR NOT YOU'RE DRAWING TO THE SCREEN
+let click = true;
+
+// LISTENER CALLBACK FUNCTION SWITCHES CLICK BOOLEAN VALUE BETWEEN TRUE AND FALSE
+document.body.addEventListener('click', ()=> {
+    click = !click;
+});
      
 // SETS SIZE DIMENSIONS OF DRAW AREA DYNAMICALLY
 drawArea.style.width = `${drawAreaWidthHeight}px`;
@@ -22,13 +37,12 @@ function createPixel(pixelQty) {
         createPixel.style.width = `${(drawAreaWidthHeight / pixelQty)}px`;
         createPixel.style.height = `${(drawAreaWidthHeight / pixelQty)}px`;
         createPixel.classList.add('pixelStyle');
-
         createPixel.addEventListener('mouseover', colorPixel);
         drawArea.appendChild(createPixel);
     }
 }
 
-// INVOKES FIRST PIXEL GRID AREA
+// INVOKES INITIAL PIXEL GRID AREA
 createPixel(pixelSlider.value);
 output.textContent = `${pixelSlider.value} x ${pixelSlider.value}`;
 
@@ -41,29 +55,56 @@ pixelSlider.addEventListener('input', ()=> {
     output.textContent = `${pixelSlider.value} x ${pixelSlider.value}`;
 });
 
-
 // ADDEVENT LISTENER WILL ERASE CHILD NODES FROM PARENT 
 resetPixels.addEventListener('click', () => {
-    drawArea.childNodes.forEach((e)=> e.style.backgroundColor = null);
+        containerFrame.style.cssText= 'none';
+    setTimeout(()=> {
+        containerFrame.style.cssText= 'animation: shake 2s ease 1 both';
+    }, 200);
+    setTimeout(()=> {
+        drawArea.childNodes.forEach((e)=> e.style.backgroundColor = null);
+    }, 1000)
 });
 
-// GENERATES A RANDOM NUMBER FROM 0 - 255 AND ITS INVOKATION IS USED AS AN ARGUEMENT INSIDE THE COLORPIXEL FUNCTION
-function rgbRandomNum(max, min) {
-    return Math.floor(Math.random() * (max - min) + 1) + min;
-}
+// SWITCH COLOR MODES AND ACTIVATE ERASER BASED ON BUTTONS
+colorMode.addEventListener('input', () => {
+    currentMode = 'color';
+});
 
-let click = true;
+rainBowMode.addEventListener('click', () => {
+    currentMode = 'rainbow';
+});
 
-// COLORS UPON MOUSE HOVER ANY ELEMENT THE THIS KEYWORD BINDS TOO
+erasePixels.addEventListener('click', () => {
+    currentMode = 'eraser';
+});
+
+// TOGGLES GRID LINES APPLIED TO CHILDREN DIVS ON DRAW AREA ON OR OFF
+printGrid.addEventListener('click', ()=> {
+    drawArea.childNodes.forEach((pixel)=> {
+        pixel.classList.toggle('pixelStyle');
+    });
+});
+
+// FUNCTION TO COLOR PIXELS BASED ON CURRENT MODE
 function colorPixel() {
-    if(click) {
-        this.style.backgroundColor = `rgb(0,0,0)`;
-    } else {
-        this.style.backgroundColor = `rgb(${rgbRandomNum(0,255)},${rgbRandomNum(0,255)},${rgbRandomNum(0,255)},${Math.random() * 255})`;
+    if (!click) return;
+
+    if (currentMode === 'color') {
+        this.style.backgroundColor = colorMode.value;
+    } else if (currentMode === 'rainbow') {
+        this.style.backgroundColor = randomColor();
+    } else if (currentMode === 'eraser') {
+        this.style.backgroundColor = null;
     }
 }
 
-// LISTENER CALLBACK FUNCTION SWITCHES CLICK BOOLEAN VALUE BETWEEN TRUE AND FALSE
-document.body.addEventListener('click', ()=> {
-    click = !click;
-});
+// RANDOMIZES RANGE BETWEEN 0 AND 255 AND IS USED AS ARGUEMENT FOR RANDOMCOLOR FUNCTION
+const randomInt = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+// RAINBOW MODE BRUSH
+const randomColor = function () {
+	return `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+}
