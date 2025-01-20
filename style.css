@@ -178,6 +178,7 @@ output {
     flex-wrap: wrap;
 
     border-radius: 5px;
+    box-shadow: inset 5px 5px 50px 20px rgb(0, 0, 0, 0.8);
 
     overflow: hidden;
     cursor: pointer;
