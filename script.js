@@ -82,7 +82,7 @@ rainBowMode.addEventListener('click', () => {
 });
 
 erasePixels.addEventListener('click', () => {
-    click = true;
+    click = false;
     currentMode = 'eraser';
 });
 
