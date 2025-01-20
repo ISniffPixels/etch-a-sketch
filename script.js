@@ -70,7 +70,7 @@ resetPixels.addEventListener('click', () => {
     }, 1000)
 });
 
-// SWITCH COLOR MODES AND ACTIVATE ERASER BASED ON BUTTONS
+// SWITCH COLOR MODES AND ACTIVATE ERASER UPON BUTTON CLICKS
 colorMode.addEventListener('input', () => {
     click = false;
     currentMode = 'color';
