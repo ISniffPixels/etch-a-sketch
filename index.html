@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <title>Etch-a-Sketch App</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -17,17 +20,17 @@
             <div class="control_dials_container">
                 <div class="dial_left"></div>
                 <div class="slider_container">
-                    <input type="range" class="slider" id="slider" min="16" max="64" step="16"  name="slider">
+                    <input type="range" id="slider" class="slider" min="16" max="64" step="16"  name="slider">
                     <output></output>
                 </div>
                 <div class="color_picker">
                     <input type="color" id="colorMode">
                 </div>
                 <div class="control_btns_container">
-                    <button id="random_color">RAINBOW</button>
-                    <button id="reset_pixels">SHAKE</button>
-                    <button id="erase_pixels">ERASER</button>
-                    <button id="print_grid">GRID</button>
+                    <button id="random_color" class="rainbow_img"></button>
+                    <button id="reset_pixels" class="reset_img"></button>
+                    <button id="erase_pixels" class="eraser_img"></button>
+                    <button id="print_grid" class="grid_img"></button>
                 </div>
                 <div class="dial_right"></div>
             </div>

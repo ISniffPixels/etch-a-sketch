@@ -17,7 +17,7 @@ const containerFrame = document.querySelector('.container_frame');
 let currentMode = 'color';
 
 // BOOLEAN VALUE TO DETERMINE WHETHER OR NOT YOU'RE DRAWING TO THE SCREEN
-let click = true;
+let click = false;
 
 // LISTENER CALLBACK FUNCTION SWITCHES CLICK BOOLEAN VALUE BETWEEN TRUE AND FALSE
 document.body.addEventListener('click', ()=> {
@@ -62,7 +62,10 @@ resetPixels.addEventListener('click', () => {
         containerFrame.style.cssText= 'animation: shake 2s ease 1 both';
     }, 200);
     setTimeout(()=> {
-        drawArea.childNodes.forEach((e)=> e.style.backgroundColor = null);
+        drawArea.childNodes.forEach((e)=> {
+            e.style.backgroundColor = null 
+            e.style.boxShadow = null;
+        });
     }, 1000)
 });
 
@@ -92,10 +95,13 @@ function colorPixel() {
 
     if (currentMode === 'color') {
         this.style.backgroundColor = colorMode.value;
+        this.style.boxShadow = `0px 0px 20px 0px ${colorMode.value}`;
     } else if (currentMode === 'rainbow') {
         this.style.backgroundColor = randomColor();
+        this.style.boxShadow = `0px 0px 20px 0px ${randomColor()}`;
     } else if (currentMode === 'eraser') {
         this.style.backgroundColor = null;
+        this.style.boxShadow = null;
     }
 }
 

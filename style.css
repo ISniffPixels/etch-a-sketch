@@ -14,7 +14,16 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.monoton-regular {
+    font-family: "Monoton", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
 .wrapper {
+    background-color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +43,7 @@ body {
 }
 
 .etch_title {
-    color: rgb(255, 215, 0);
+    color: rgb(255, 255, 255);
     font-size: 20px;
     font-weight: bolder;
 
@@ -42,10 +51,10 @@ body {
 }
 
 .etch_span {
-    font-family: cursive;
-    font-size: 50px;
-    font-weight: bolder;
-    font-style: italic;
+    font-family: "Monoton", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
 }
 
 .reg_span {
@@ -56,7 +65,7 @@ body {
 }
 
 .container_frame {
-    background-color: rgb(200, 0, 0);
+    background-image: url('plastic_case_bg.png');
 
     display: flex;
     flex-direction: column;
@@ -64,6 +73,7 @@ body {
     align-items: center;
 
     border-radius: 5px;
+    box-shadow: 0px 0px 40px 0px rgb(0, 0, 0);
 
     width: 1000px;
     height: 800px;
@@ -85,21 +95,24 @@ body {
     justify-content: center;
     align-items: center;
 
-    gap: 20px;
+    gap: 22px;
     margin-block: 40px;
 }
 
 .slider {
    appearance: none;
    font-size: 16px;
-   background-color: rgb(0, 0, 0);
+   background-color: rgb(141, 141, 141);
+
    height: 4px;
    width: 150px;
+   
    margin-block: auto;
+   cursor: pointer;
 }
 
 output {
-    color: rgb(255, 215, 0);
+    color: rgb(255, 255, 255);
 
     font-weight: bolder;
     font-size: 20px;
@@ -116,29 +129,62 @@ output {
 }
 
 .color_picker {
-   margin-block: auto;
+    margin-block: auto;
+}
+
+.color_picker input {
+    width: 50px;
+    height: 50px;
 }
 
 .control_btns_container > button {
-    font-size: 16px;
-    font-weight: bolder;
-    width: 100%;
-    padding: 5px;
+    width: 60px;
+    height: 60px;
+    
+    background-color: black;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.rainbow_img,
+.reset_img,
+.eraser_img,
+.grid_img {
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center center;
+}
+
+.rainbow_img {
+    background-image: url('random_color_btn.png');
+}
+.reset_img {
+    background-image: url('reset_btn.png');
+}
+.eraser_img {
+    background-image: url('eraser_btn.png');
+}
+.grid_img {
+    background-image: url('grid_btn.png');
 }
 
 .drawArea {
-    background-color: rgb(220, 220, 220);
+    background-image: url('soft_static_bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     display: flex;
     flex-wrap: wrap;
 
-    border-radius: 20px;
+    border-radius: 5px;
 
     overflow: hidden;
+    cursor: pointer;
 }
 
 .pixelStyle {
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 254, 254, 0.5);
 }
 
 .control_dials_container {
@@ -152,7 +198,10 @@ output {
 
 .dial_left,
 .dial_right {
-    background-color: rgb(255, 255, 255);
+    background-image: url('dial_img.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 125%;
 
     border-radius: 100%;
     box-shadow: 2px 2px 2px 4px rgb(0, 0, 0, 0.3);
