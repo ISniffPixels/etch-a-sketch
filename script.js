@@ -63,6 +63,7 @@ resetPixels.addEventListener('click', () => {
     }, 200);
     setTimeout(()=> {
         drawArea.childNodes.forEach((e)=> {
+            click = false;
             e.style.backgroundColor = null 
             e.style.boxShadow = null;
         });
@@ -71,14 +72,17 @@ resetPixels.addEventListener('click', () => {
 
 // SWITCH COLOR MODES AND ACTIVATE ERASER BASED ON BUTTONS
 colorMode.addEventListener('input', () => {
+    click = false;
     currentMode = 'color';
 });
 
 rainBowMode.addEventListener('click', () => {
+    click = true;
     currentMode = 'rainbow';
 });
 
 erasePixels.addEventListener('click', () => {
+    click = true;
     currentMode = 'eraser';
 });
 
