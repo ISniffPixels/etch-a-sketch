@@ -65,7 +65,7 @@ body {
 }
 
 .container_frame {
-    background-image: url('/img/plastic_case_bg.png');
+    background-image: url('./img/plastic_case_bg.png');
 
     display: flex;
     flex-direction: column;
@@ -156,20 +156,20 @@ output {
 }
 
 .rainbow_img {
-    background-image: url('/img/random_color_btn.png');
+    background-image: url('./img/random_color_btn.png');
 }
 .reset_img {
-    background-image: url('/img/reset_btn.png');
+    background-image: url('./img/reset_btn.png');
 }
 .eraser_img {
-    background-image: url('/img/eraser_btn.png');
+    background-image: url('./img/eraser_btn.png');
 }
 .grid_img {
-    background-image: url('/img/grid_btn.png');
+    background-image: url('./img/grid_btn.png');
 }
 
 .drawArea {
-    background-image: url('/img/soft_static_bg.png');
+    background-image: url('./img/soft_static_bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -198,7 +198,7 @@ output {
 
 .dial_left,
 .dial_right {
-    background-image: url('/img/dial_img.png');
+    background-image: url('./img/dial_img.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 125%;
